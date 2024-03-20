@@ -20,3 +20,10 @@ spec:
             {{- range .Values.networking.ports }}
             - containerPort: {{ .containerPort }}
             {{- end }}
+          args:
+            - --host
+            - 0.0.0.0
+            - --port
+            - '{{ .Values.networking.ports[0].containerPort }}'
+            - --scheme
+            - http
