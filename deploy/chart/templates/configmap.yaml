@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ tpl .Values.configMap.configMapName . }}
 data:
-  QUERY_DEFAULTS_LIMIT: 25
+  QUERY_DEFAULTS_LIMIT: "25"
   AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
   PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
   DEFAULT_VECTORIZER_MODULE: 'none'
