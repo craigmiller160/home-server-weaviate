@@ -1,0 +1,9 @@
+appName: weaviate
+deployment:
+  image: cr.weaviate.io/semitechnologies/weaviate:1.24.3
+networking:
+  ports:
+    - containerPort: 8080
+      nodePort: 1
+    - containerPort: 50051
+      nodePort: 2
