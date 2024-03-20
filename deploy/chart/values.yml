@@ -10,3 +10,5 @@ networking:
       nodePort: 1
     - containerPort: 50051
       nodePort: 2
+volume:
+  containerPath: /var/lib/weaviate
