@@ -24,6 +24,6 @@ spec:
             - --host
             - 0.0.0.0
             - --port
-            - '{{ .Values.networking.ports[0].containerPort }}'
+            - '{{ (index .Values.networking.ports 0).containerPort }}'
             - --scheme
             - http
