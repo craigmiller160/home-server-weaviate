@@ -4,3 +4,8 @@ description: The home server weaviate helm chart
 type: application
 version: 0.1.0
 appVersion: "1.0.0"
+dependencies:
+  - name: weaviate
+    version: 16.8.7
+    repository: https://weaviate.github.io/weaviate-helm
+    alias: weaviate
