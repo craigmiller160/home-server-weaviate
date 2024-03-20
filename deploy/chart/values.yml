@@ -1,4 +1,6 @@
 appName: weaviate
+configMap:
+  configMapName: "{{ .Values.appName }}-configmap"
 deployment:
   image: cr.weaviate.io/semitechnologies/weaviate:1.24.3
 networking:
