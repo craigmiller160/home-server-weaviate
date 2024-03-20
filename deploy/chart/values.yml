@@ -11,4 +11,5 @@ networking:
     - containerPort: 50051
       nodePort: 2
 volume:
+  pvcName: "{{ .Values.appName }}-pvc"
   containerPath: /var/lib/weaviate
