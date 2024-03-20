@@ -1,0 +1,6 @@
+{
+  "name": "@craigmiller160/weaviate",
+  "version": "1.0.0",
+  "namespace": "infra-prod",
+  "type": "application"
+}
