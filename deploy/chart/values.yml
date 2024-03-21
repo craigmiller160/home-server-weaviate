@@ -3,13 +3,13 @@ configMap:
   configMapName: "{{ .Values.appName }}-configmap"
 deployment:
   image: cr.weaviate.io/semitechnologies/weaviate:1.24.3
+  containerName: "{{ .Values.appName }}-container"
 networking:
   serviceName: "{{ .Values.appName }}-service"
   ports:
     - containerPort: 8080
-      nodePort: 1
     - containerPort: 50051
-      nodePort: 2
 volume:
   pvcName: "{{ .Values.appName }}-pvc"
+  volumeName: "{{ .Values.appName }}-volume"
   containerPath: /var/lib/weaviate

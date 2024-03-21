@@ -13,7 +13,7 @@ spec:
         app: {{ .Values.appName }}
     spec:
       containers:
-        - name: {{ .Values.appName }}
+        - name: {{ tpl .Values.deployment.containerName . }}
           image: {{ .Values.deployment.image }}
           imagePullPolicy: IfNotPresent
           ports:
@@ -30,3 +30,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ tpl .Values.configMap.configMapName . }}
+          volumeMounts:
+            - mountPath: {{ .Values.volume.containerPath }}
+              name: {{ tpl .Values.volume.volumeName . }}
+      volumes:
+        - name: {{ tpl .Values.volume.volumeName . }}
+          persistentVolumeClaim:
+            claimName: {{ tpl .Values.volume.pvcName . }}
