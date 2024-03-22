@@ -4,7 +4,7 @@ metadata:
   name: {{ tpl .Values.configMap.configMapName . }}
 data:
   QUERY_DEFAULTS_LIMIT: "25"
-  AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+  AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'false'
   PERSISTENCE_DATA_PATH: '{{ .Values.volume.containerPath }}'
   DEFAULT_VECTORIZER_MODULE: 'none'
   ENABLE_MODULES: ''
