@@ -31,12 +31,12 @@ spec:
             - configMapRef:
                 name: {{ tpl .Values.configMap.configMapName . }}
           env:
-            {{- range .Values.secrets }}
-            - name: {{ .envName }}
+            {{- range $index, $element := .Values.secrets }}
+            - name: {{ $element.envName }}
               valueFrom:
                 secretKeyRef:
-                  name: {{ .secretName }}
-                  key: {{ .secretKey }}
+                  name: {{ tpl $element.secretName $ }}
+                  key: {{ $element.secretKey }}
             {{- end }}
           volumeMounts:
             - mountPath: {{ .Values.volume.containerPath }}
