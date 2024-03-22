@@ -20,3 +20,8 @@ volume:
   pvcName: "{{ .Values.appName }}-pvc"
   volumeName: "{{ .Values.appName }}-volume"
   containerPath: /var/lib/weaviate
+certificate:
+  issuer: "{{ .Values.appName }}-cluster-issuer"
+  name: "{{ .Values.appName }}-certificate"
+  dnsNames:
+    - craigpc

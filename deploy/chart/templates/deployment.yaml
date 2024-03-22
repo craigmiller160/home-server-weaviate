@@ -26,7 +26,7 @@ spec:
             - --port
             - '{{ (index .Values.networking.ports 0).containerPort }}'
             - --scheme
-            - http
+            - https
           envFrom:
             - configMapRef:
                 name: {{ tpl .Values.configMap.configMapName . }}

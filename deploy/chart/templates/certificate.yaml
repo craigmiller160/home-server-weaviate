@@ -1,0 +1,32 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: {{ tpl .Values.certificate.issuer . }}
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ tpl .Values.certificate.name . }}
+spec:
+  isCA: true
+  secretName: {{ tpl .Values.certificate.name . }}
+  subject:
+    organizations:
+      - "Craig Miller"
+    organizationalUnits:
+      - {{ .Values.appName }}
+    countries:
+      - US
+    states:
+      - FL
+  dnsNames:
+    {{ .Values.certificate.dnsNames | toYaml }}
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  issuerRef:
+    name: {{ tpl .Values.certificate.issuer . }}
+    kind: ClusterIssuer
+    group: cert-manager.io
