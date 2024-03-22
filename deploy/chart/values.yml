@@ -11,6 +11,11 @@ networking:
       nodePort: 30000
     - containerPort: 50051
       nodePort: 30001
+secrets:
+  - secretName: "{{ .Values.appName }}-api-key"
+    secretKey: password
+    envName: AUTHENTICATION_APIKEY_ALLOWED_KEYS
+    onepasswordItemPath: vaults/Home Server (Prod)/items/Weaviate API Key
 volume:
   pvcName: "{{ .Values.appName }}-pvc"
   volumeName: "{{ .Values.appName }}-volume"

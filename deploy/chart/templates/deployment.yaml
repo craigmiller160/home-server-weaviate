@@ -30,6 +30,14 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ tpl .Values.configMap.configMapName . }}
+          env:
+            {{- range .Values.secrets }}
+            - name: {{ .envName }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .secretName }}
+                  key: {{ .secretKey }}
+            {{- end }}
           volumeMounts:
             - mountPath: {{ .Values.volume.containerPath }}
               name: {{ tpl .Values.volume.volumeName . }}
