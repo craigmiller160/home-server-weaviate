@@ -45,3 +45,6 @@ spec:
         - name: {{ tpl .Values.volume.volumeName . }}
           persistentVolumeClaim:
             claimName: {{ tpl .Values.volume.pvcName . }}
+        - name: certificate
+          secret:
+            secretName: {{ tpl .Values.certificate.name }}
