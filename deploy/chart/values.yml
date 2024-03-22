@@ -9,8 +9,10 @@ networking:
   ports:
     - containerPort: 8080
       nodePort: 30000
+      name: rest
     - containerPort: 50051
       nodePort: 30001
+      name: grpc
 secrets:
   - secretName: "{{ .Values.appName }}-api-key"
     secretKey: password

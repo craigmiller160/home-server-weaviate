@@ -11,5 +11,5 @@ spec:
     - port: {{ $element.containerPort }}
       targetPort: {{ $element.containerPort }}
       nodePort: {{ $element.nodePort }}
-      name: "port-{{ $index }}"
+      name: {{ $element.name }}
     {{- end}}
