@@ -8,7 +8,9 @@ networking:
   serviceName: "{{ .Values.appName }}-service"
   ports:
     - containerPort: 8080
+      nodePort: 30000
     - containerPort: 50051
+      nodePort: 30001
 volume:
   pvcName: "{{ .Values.appName }}-pvc"
   volumeName: "{{ .Values.appName }}-volume"
