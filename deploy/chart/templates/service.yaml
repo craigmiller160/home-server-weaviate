@@ -7,8 +7,9 @@ spec:
   selector:
     app: {{ tpl .Values.appName . }}
   ports:
-    {{- range .Values.networking.ports }}
-    - port: {{ .containerPort }}
-      targetPort: {{ .containerPort }}
-      nodePort: {{ .nodePort }}
+    {{- range $index, $element := .Values.networking.ports }}
+    - port: {{ $element.containerPort }}
+      targetPort: {{ $element.containerPort }}
+      nodePort: {{ $element.nodePort }}
+      name: "port-{{ $index }}"
     {{- end}}
