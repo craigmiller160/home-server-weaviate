@@ -3,3 +3,6 @@
 *.iml
 deploy/chart/charts
 *.tgz
+*.p12
+*.key
+*.crt
