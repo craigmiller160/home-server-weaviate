@@ -5,7 +5,7 @@ import base64
 
 def get_certificate_secret():
     process = subprocess.run([
-        'kubectl', '-n', 'infra-prod', 'get', 'secret', 'kafka-certificate', '-o', 'yaml'
+        'kubectl', '-n', 'infra-prod', 'get', 'secret', 'weaviate-certificate', '-o', 'yaml'
     ], capture_output=True, text=True)
 
     return process.stdout
