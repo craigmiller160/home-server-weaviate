@@ -22,7 +22,9 @@ spec:
     states:
       - FL
   dnsNames:
-    {{ .Values.certificate.dnsNames | toYaml }}
+    {{- range .Values.certificate.dnsNames }}
+    - {{ . }}
+    {{- end}}
   privateKey:
     algorithm: ECDSA
     size: 256
