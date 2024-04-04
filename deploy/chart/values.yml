@@ -27,3 +27,4 @@ certificate:
   name: "{{ .Values.appName }}-certificate"
   dnsNames:
     - craigpc
+    - craigmiller160.us
