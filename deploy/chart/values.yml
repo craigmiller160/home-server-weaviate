@@ -28,3 +28,4 @@ certificate:
   dnsNames:
     - craigpc
     - craigmiller160.us
+    - weaviate-service.infra-prod
